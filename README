@@ -1,0 +1,21 @@
+- Get SBT 0.7.5.RC0
+- sbt update package
+- cp target/scala_2.8.1/akka-mist-sample.jar to deploy/ of your Akka RC3 dist
+- cp src/main/resources/* config/ of your Akka RC3 dist
+- cd your RC3 dist folder
+- export AKKA_HOME=`pwd`
+- java -jar akka-1.0.RC3.jar
+- open browser to http://localhost:9998/foo & should see "it works" & log should show something like:
+
+[main] [INFO] [2011-01-21 19:31:34,106] a.k.Kernel$$anon$1: Akka HTTP service started
+[main] [INFO] [2011-01-21 19:31:34,107] a.k.Kernel$$anon$1: Loading boot class [sample.Boot]
+[main] [INFO] [2011-01-21 19:31:34,133] a.d.LazyExecutorServiceWrapper: Lazily initializing ExecutorService for 
+[main] [INFO] [2011-01-21 19:31:34,135] a.k.Kernel$: Akka started successfully
+[pool-1-thread-14] [INFO] [2011-01-21 19:31:37,224] a.h.AkkaMistServlet: Initializing Akka HTTP on jetty/7.1.6.v20100715 with Servlet API 2.5
+[pool-1-thread-14] [INFO] [2011-01-21 19:31:37,225] a.h.AkkaMistServlet: Supporting Jetty asynchronous continuations.
+
+
+
+Getting RC3 dist: easiest to just download akka-1.0-RC3.zip and akka-modules-1.0-RC3.zip from jboner/akka on github
+Unzip akka.zip then akka-modules.zip (overwrite 'N' when asked)
+
