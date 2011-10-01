@@ -1,12 +1,10 @@
 package sample
 
-
 import akka.actor._
 import akka.http._
 
-class SampleService extends Actor with Endpoint
-{
-  self.dispatcher = Endpoint.Dispatcher;
+class SampleService extends Actor with Endpoint {
+  self.dispatcher = Endpoint.Dispatcher
 
   def hook(uri:String) = true
   def provide(uri:String) = Actor.actorOf[SampleActor].start
@@ -17,12 +15,9 @@ class SampleService extends Actor with Endpoint
 }
 
 
-class SampleActor extends Actor
-{
-  def receive = 
-  {
+class SampleActor extends Actor {
+  def receive = {
     case get:Get => get OK "it works"
     case other:RequestMethod => other NotAllowed "unsupported request"
   }
 }
-
